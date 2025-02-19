@@ -1,22 +1,38 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@std/assert@1": "1.0.11",
+    "jsr:@std/internal@^1.0.5": "1.0.5",
     "npm:@eslint/eslintrc@3": "3.2.0",
     "npm:@tailwindcss/postcss@^4.0.7": "4.0.7",
     "npm:@types/chart.js@^2.9.41": "2.9.41",
     "npm:@types/node@20": "20.17.19",
+    "npm:@types/react-chartjs-2@^2.5.7": "2.5.7_chart.js@4.4.7_react@19.0.0",
     "npm:@types/react-dom@19": "19.0.4_@types+react@19.0.10",
     "npm:@types/react@19": "19.0.10",
     "npm:chart.js@^4.4.7": "4.4.7",
+    "npm:chartjs@~0.3.24": "0.3.24",
     "npm:eslint-config-next@15.1.7": "15.1.7_eslint@9.20.1_typescript@5.7.3_@typescript-eslint+parser@8.24.1__eslint@9.20.1__typescript@5.7.3_eslint-plugin-import@2.31.0__eslint@9.20.1",
     "npm:eslint@9": "9.20.1",
     "npm:mathjs@^14.2.1": "14.2.1",
     "npm:next@15.1.7": "15.1.7_react@19.0.0_react-dom@19.0.0__react@19.0.0",
     "npm:postcss@8": "8.5.2",
+    "npm:react-chartjs-2@^5.3.0": "5.3.0_chart.js@4.4.7_react@19.0.0",
     "npm:react-dom@19": "19.0.0_react@19.0.0",
     "npm:react@19": "19.0.0",
     "npm:tailwindcss@^4.0.7": "4.0.7",
     "npm:typescript@5": "5.7.3"
+  },
+  "jsr": {
+    "@std/assert@1.0.11": {
+      "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.5": {
+      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
+    }
   },
   "npm": {
     "@alloc/quick-lru@5.2.0": {
@@ -354,6 +370,12 @@
         "undici-types"
       ]
     },
+    "@types/react-chartjs-2@2.5.7_chart.js@4.4.7_react@19.0.0": {
+      "integrity": "sha512-waqYqiNULIVUqaKO7MGUpFmWrVtH7gVPOzqwV4y4zgUyu/JiDwC005PpveO442HKnby9kLgp3t1SB2sld+ACLw==",
+      "dependencies": [
+        "react-chartjs-2"
+      ]
+    },
     "@types/react-dom@19.0.4_@types+react@19.0.10": {
       "integrity": "sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg==",
       "dependencies": [
@@ -645,6 +667,9 @@
       "dependencies": [
         "@kurkle/color"
       ]
+    },
+    "chartjs@0.3.24": {
+      "integrity": "sha512-h6G9qcDqmFYnSWqjWCzQMeOLiypS+pM6Fq2Rj7LPty8Kjx5yHonwwJ7oEHImZpQ2u9Pu36XGYfardvvBiQVrhg=="
     },
     "client-only@0.0.1": {
       "integrity": "sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA=="
@@ -1831,6 +1856,13 @@
     "queue-microtask@1.2.3": {
       "integrity": "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="
     },
+    "react-chartjs-2@5.3.0_chart.js@4.4.7_react@19.0.0": {
+      "integrity": "sha512-UfZZFnDsERI3c3CZGxzvNJd02SHjaSJ8kgW1djn65H1KK8rehwTjyrRKOG3VTMG8wtHZ5rgAO5oTHtHi9GCCmw==",
+      "dependencies": [
+        "chart.js",
+        "react"
+      ]
+    },
     "react-dom@19.0.0_react@19.0.0": {
       "integrity": "sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==",
       "dependencies": [
@@ -2311,20 +2343,26 @@
     }
   },
   "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@1"
+    ],
     "packageJson": {
       "dependencies": [
         "npm:@eslint/eslintrc@3",
         "npm:@tailwindcss/postcss@^4.0.7",
         "npm:@types/chart.js@^2.9.41",
         "npm:@types/node@20",
+        "npm:@types/react-chartjs-2@^2.5.7",
         "npm:@types/react-dom@19",
         "npm:@types/react@19",
         "npm:chart.js@^4.4.7",
+        "npm:chartjs@~0.3.24",
         "npm:eslint-config-next@15.1.7",
         "npm:eslint@9",
         "npm:mathjs@^14.2.1",
         "npm:next@15.1.7",
         "npm:postcss@8",
+        "npm:react-chartjs-2@^5.3.0",
         "npm:react-dom@19",
         "npm:react@19",
         "npm:tailwindcss@^4.0.7",

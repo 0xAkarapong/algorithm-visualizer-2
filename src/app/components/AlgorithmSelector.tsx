@@ -1,4 +1,5 @@
 // app/components/AlgorithmSelector.tsx
+import { on } from 'events';
 import React, { useState } from 'react';
 
 interface Algorithm {
@@ -6,6 +7,9 @@ interface Algorithm {
   type: string;
 }
 
+interface AlgorithmSelectorProps {
+  onAlgorithmSelect: (algorithm: Algorithm) => void;
+}
 const algorithms: Algorithm[] = [
   { name: 'Bubble Sort', type: 'Sorting' },
   { name: 'Insertion Sort', type: 'Sorting' },
@@ -16,12 +20,12 @@ const algorithms: Algorithm[] = [
   { name: 'Dijkstra\'s Algorithm', type: 'Graph' },
 ];
 
-const AlgorithmSelector: React.FC = () => {
+const AlgorithmSelector: React.FC<AlgorithmSelectorProps> = ({ onAlgorithmSelect }) => {
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<Algorithm | null>(null);
 
   const handleAlgorithmSelect = (algorithm: Algorithm) => {
     setSelectedAlgorithm(algorithm);
-
+    onAlgorithmSelect(algorithm);
     console.log("Selected Algorithm:", algorithm.name);
   };
 
