@@ -1,8 +1,6 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@std/assert@1": "1.0.11",
-    "jsr:@std/internal@^1.0.5": "1.0.5",
     "npm:@eslint/eslintrc@3": "3.2.0",
     "npm:@tailwindcss/postcss@^4.0.7": "4.0.7",
     "npm:@types/chart.js@^2.9.41": "2.9.41",
@@ -22,17 +20,6 @@
     "npm:react@19": "19.0.0",
     "npm:tailwindcss@^4.0.7": "4.0.7",
     "npm:typescript@5": "5.7.3"
-  },
-  "jsr": {
-    "@std/assert@1.0.11": {
-      "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
-      "dependencies": [
-        "jsr:@std/internal"
-      ]
-    },
-    "@std/internal@1.0.5": {
-      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
-    }
   },
   "npm": {
     "@alloc/quick-lru@5.2.0": {
@@ -2343,9 +2330,6 @@
     }
   },
   "workspace": {
-    "dependencies": [
-      "jsr:@std/assert@1"
-    ],
     "packageJson": {
       "dependencies": [
         "npm:@eslint/eslintrc@3",

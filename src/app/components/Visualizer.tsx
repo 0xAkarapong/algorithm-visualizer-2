@@ -102,7 +102,7 @@ const Visualizer: React.FC<VisualizerProps> = ({ algorithm }) => {
         setChart(null); // Reset chart
       }
     };
-  }, [chartRef, steps, algorithm, isPlaying, animationSpeed, currentStep, data]);
+  }, [chartRef, steps, algorithm, isPlaying, animationSpeed, currentStep, data, chart]);
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);

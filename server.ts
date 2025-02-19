@@ -1,31 +1,22 @@
-import next from "next";
-import { createServer } from "http";
-const app = next({
-  dev: false, // 
-  dir: ".", //
+// server.ts
+import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
+import { NextServer } from "https://deno.land/x/next_server@1.0.0/mod.ts";
+
+const nextServer = new NextServer({
+  hostname: "0.0.0.0", // Listen on all interfaces (important for Deno Deploy)
+  port: 8080, // Or any port you prefer
+  dir: ".", // The directory containing your Next.js app
 });
 
-const handle = app.getRequestHandler();
-await app.prepare();
+await nextServer.prepare(); // Prepare the Next.js server
 
-const serve = (handler: (req: any, res: any) => Promise<Response>) => {
-  const server = createServer(async (req, res) => {
-    const response = await handler(req, res);
-    res.writeHead(response.status, response.statusText);
-    res.end(await response.text());
-  });
-  server.listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
-  });
-};
-await app.prepare();
-
-serve(async (req, res) => {
+serve(async (req: Request) => {
   try {
-    await handle(req, res);
-    return new Response("OK", { status: 200 });
+    return await nextServer.handle(req); // Let Next.js handle the request
   } catch (error) {
-    console.error("Server-side error:", error); // Log the error!
+    console.error("Error handling request:", error);
     return new Response("Internal Server Error", { status: 500 });
   }
-});
+}, { port: 8080 }); // Start the server on the specified port
+
+console.log(`Server started on http://localhost:8080`);
