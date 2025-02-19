@@ -82,7 +82,9 @@ const Visualizer: React.FC<VisualizerProps> = ({ algorithm }) => {
           setData(steps[currentStep]);
           setCurrentStep(currentStep + 1);
         } else {
-          clearInterval(interval);
+          if (interval) {
+            clearInterval(interval);
+          }
           setIsPlaying(false); // Stop when finished
           setCurrentStep(0); // Reset for next run
         }
@@ -112,7 +114,22 @@ const Visualizer: React.FC<VisualizerProps> = ({ algorithm }) => {
 
   // Algorithm Implementations 
   function performBubbleSort(arr: number[]): number[][] {
-    return [];
+    const steps: number[][] = [arr.slice()];
+    const n = arr.length;
+    let swapped: boolean;
+    do {
+      swapped = false;
+      for (let i = 0; i < n - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+          const temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+          swapped = true;
+          steps.push(arr.slice());
+        }
+      }
+    } while (swapped);
+    return steps;
   }
 
   function performInsertionSort(arr: number[]): number[][] {
